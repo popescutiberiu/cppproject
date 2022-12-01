@@ -48,6 +48,7 @@ public:
 
 	~Client() {
 		delete[] this->address;
+		NO_CLIENTS--;
 	}
 
 	string getName() {
@@ -99,7 +100,9 @@ public:
 		}
 	}
 
-
+	static int getNoClients() {
+		return Client::NO_CLIENTS;
+	}
 
 
 	void operator<<(ostream& out) {
@@ -141,7 +144,7 @@ public:
 	}
 
 	bool operator==(Client c) {
-		return this->age == c.age;
+		return this->age = c.age;
 	}
 };
 
