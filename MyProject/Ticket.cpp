@@ -100,6 +100,18 @@ class Ticket {
 		}
 	}
 
+	static double getTotalPrice(Ticket tickets[], int noTickets) {
+		double total = 0;
+		for (int i = 0; i < noTickets;i++) {
+			total += tickets[i].price;
+		}
+		return total;
+	}
+
+
+	void changeHour( int difference) {
+		this->hour -= difference;
+	}
 
 	void operator<<(ostream& out) {
 

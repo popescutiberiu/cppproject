@@ -93,6 +93,17 @@ public:
 		}
 	}
 
+	void increaseCapacity(int capcity) {
+		this->capacity += capcity;
+	}
+
+	static int getTotalDuration(Event events[], int noEvents) {
+		int total = 0;
+		for (int i = 0; i < noEvents;i++) {
+			total += events[i].duration;
+		}
+		return total;
+	}
 
 	void operator<<(ostream& out) {
 

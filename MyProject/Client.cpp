@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <string>
 #include <iostream>
 using namespace std;
@@ -104,6 +105,9 @@ public:
 		return Client::NO_CLIENTS;
 	}
 
+	void makeAdult() {
+		this->isAdult = true;
+	}
 
 	void operator<<(ostream& out) {
 		
