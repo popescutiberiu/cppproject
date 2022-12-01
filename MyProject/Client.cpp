@@ -4,6 +4,7 @@ using namespace std;
 
 class Client {
 private:
+
 	string name = "";
 	char* address = nullptr;
 	int age=0;
@@ -17,13 +18,22 @@ public:
 			
 	}
 
-	Client(string name, char* address, int age, bool isAdult) {
+	Client(int id, string name, char* address, int age, bool isAdult) {
 		this->name = name;
 		this->address = address;
 		this->age = age;
 		this->isAdult = isAdult;
 		NO_CLIENTS++;
 	}
+
+	Client(const Client& client) 
+	{
+		this->name = client.name;
+		this->address = client.address;
+		this->age = client.age;
+		this->isAdult == client.isAdult;
+	}
+
 
 	void print() {
 		cout << endl <<"Name: " << this->name;
@@ -88,7 +98,12 @@ public:
 			this->age = age;
 		}
 	}
+
+
+
+
 	void operator<<(ostream& out) {
+		
 		cout << endl << "Name: " << this->name;
 		cout << endl << "Address: " << this->address;
 		cout << endl << "age: " << this->age;
@@ -99,6 +114,7 @@ public:
 	}
 
 	void operator>>(istream& in) {
+
 		cout << endl << "name: ";
 		in >> name;
 		cout << endl << "address: ";
