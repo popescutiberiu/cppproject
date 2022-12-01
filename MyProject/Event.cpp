@@ -113,7 +113,7 @@ public:
 		in >> capacity;
 		cout << endl << "duration: ";
 		in >> duration;
-		cout << endl << "number of stages: ";
+		
 
 	
 	}
