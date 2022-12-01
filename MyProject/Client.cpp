@@ -143,8 +143,15 @@ void operator>>(istream& in, Client c) {
 
 	cout << endl << "name: ";
 	in >> c.name;
+
 	cout << endl << "address: ";
-	in >> c.address;
+	char buffer[100];
+	in >> buffer;
+	delete[] c.address;
+	c.address = new char[strlen(buffer) + 1];
+	strcpy_s(c.address, strlen(buffer) + 1, buffer);
+	cout << "address:  " << c.address << endl;
+	
 	cout << endl << "age: ";
 	in >> c.age;
 	cout << endl << "is adult? ";

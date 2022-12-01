@@ -144,13 +144,15 @@ void operator>>(istream& in, Ticket t) {
 	in >> t.ticketId;
 	cout << endl << "Price: ";
 	in >> t.price;
+	
+
+	cout << endl << "number of rows: ";
+	in >> t.noRows;
+	delete[] t.row;
 	cout << endl << "Row: ";
 	for (int i = 0; i < t.noRows;i++) {
 		in >> t.row[i];
 	}
-
-	cout << endl << "number of rows: ";
-	in >> t.noRows;
 	cout << endl << "Hour: ";
 	in >> t.hour;
 }
