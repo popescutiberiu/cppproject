@@ -9,12 +9,20 @@ private:
 	int age=0;
 	bool isAdult = false;
 
+	static int NO_CLIENTS;
+
 public:
+
+	Client() {
+			
+	}
+
 	Client(string name, char* address, int age, bool isAdult) {
 		this->name = name;
 		this->address = address;
 		this->age = age;
 		this->isAdult = isAdult;
+		NO_CLIENTS++;
 	}
 
 	void print() {
@@ -80,4 +88,33 @@ public:
 			this->age = age;
 		}
 	}
+	void operator<<(ostream& out) {
+		cout << endl << "Name: " << this->name;
+		cout << endl << "Address: " << this->address;
+		cout << endl << "age: " << this->age;
+		if (this->isAdult == true) {
+			cout << endl << "is over 18";
+		}
+		else cout << endl << "is under 18";
+	}
+
+	void operator>>(istream& in) {
+		cout << endl << "name: ";
+		in >> name;
+		cout << endl << "address: ";
+		in >> address;
+		cout << endl << "age: ";
+		in >> age;
+		cout << endl << "is adult? ";
+		string adult;
+		in >> adult;
+		if (adult == "yes") {
+			isAdult == true;
+		}
+		else if (adult == "no") {
+			isAdult == false;
+		}
+		
+	}
 };
+
