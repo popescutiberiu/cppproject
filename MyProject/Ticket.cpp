@@ -113,32 +113,7 @@ class Ticket {
 		this->hour -= difference;
 	}
 
-	void operator<<(ostream& out) {
-
-		cout << endl << "ticket Id: " << this->ticketId;
-
-		cout << endl << "Price: " << this->price;
-		cout << endl << "row: " << this->row;
-		cout << endl << "Number of rows: " << this->noRows;
-		cout << endl << "Hour: " << this->hour;
-	}
-
-	void operator>>(istream& in) {
-
-		cout << endl << "Ticket id: ";
-		in >> ticketId;
-		cout << endl << "Price: ";
-		in >> price;
-		cout << endl << "Row: ";
-		for (int i = 0; i < noRows;i++) {
-			in >> row[i];
-		}
-
-		cout << endl << "number of rows: ";
-		in >> noRows;
-		cout << endl << "Hour: ";
-		in >> hour;
-	}
+	
 
 	void operator/(float divide) {
 		price /= divide;
