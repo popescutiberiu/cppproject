@@ -114,7 +114,18 @@ public:
 		else if (adult == "no") {
 			isAdult == false;
 		}
-		
+	}
+	Client operator++() {
+		this->age++;
+		return *this;
+	}
+	Client operator--() {
+		this->age--;
+		return *this;
+	}
+
+	bool operator==(Client c) {
+		return this->age == c.age;
 	}
 };
 
