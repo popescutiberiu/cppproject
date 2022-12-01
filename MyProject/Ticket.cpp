@@ -148,7 +148,37 @@ class Ticket {
 		hour -= reduce;
 	}
 
+	friend void operator>>(istream& in, Ticket t);
+
+	friend void operator<<(ostream& out, Ticket t);
 };
+
+void operator<<(ostream& out, Ticket t) {
+
+	cout << endl << "ticket Id: " << t.ticketId;
+
+	cout << endl << "Price: " << t.price;
+	cout << endl << "row: " << t.row;
+	cout << endl << "Number of rows: " << t.noRows;
+	cout << endl << "Hour: " << t.hour;
+}
+
+void operator>>(istream& in, Ticket t) {
+
+	cout << endl << "Ticket id: ";
+	in >> t.ticketId;
+	cout << endl << "Price: ";
+	in >> t.price;
+	cout << endl << "Row: ";
+	for (int i = 0; i < t.noRows;i++) {
+		in >> t.row[i];
+	}
+
+	cout << endl << "number of rows: ";
+	in >> t.noRows;
+	cout << endl << "Hour: ";
+	in >> t.hour;
+}
 
 //int ticketId = 0;
 //int price = 0;

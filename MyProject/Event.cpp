@@ -105,29 +105,7 @@ public:
 		return total;
 	}
 
-	void operator<<(ostream& out) {
 
-		cout << endl << "eventName: " << this->eventName;
-
-		cout << endl << "Stage Number: " << this->stageNo;
-		cout << endl << "capacity: " << this->capacity;
-		cout << endl << "duration in minutes: " << this->duration;
-	}
-
-	void operator>>(istream& in) {
-
-		cout << endl << "Event name: ";
-		in >> eventName;
-		cout << endl << "Stage No: ";
-		in >> stageNo;
-		cout << endl << "capacity: ";
-		in >> capacity;
-		cout << endl << "duration: ";
-		in >> duration;
-		
-
-	
-	}
 	void operator*(float multiplier) {
 		capacity *= multiplier;
 	}
@@ -136,6 +114,32 @@ public:
 		duration += plus;
 	}
 
+	friend void operator>>(istream& in, Event e);
+
+	friend void operator<<(ostream& out, Event e);
 };
 
+void operator<<(ostream& out ,Event e) {
+
+	cout << endl << "eventName: " << e.eventName;
+
+	cout << endl << "Stage Number: " << e.stageNo;
+	cout << endl << "capacity: " << e.capacity;
+	cout << endl << "duration in minutes: " << e.duration;
+}
+
+void operator>>(istream& in, Event e) {
+
+	cout << endl << "Event name: ";
+	in >> e.eventName;
+	cout << endl << "Stage No: ";
+	in >> e.stageNo;
+	cout << endl << "capacity: ";
+	in >> e.capacity;
+	cout << endl << "duration: ";
+	in >> e.duration;
+
+
+
+}
 // have to add generic methods

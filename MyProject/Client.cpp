@@ -109,35 +109,7 @@ public:
 		this->isAdult = true;
 	}
 
-	void operator<<(ostream& out) {
-		
-		cout << endl << "Name: " << this->name;
-		cout << endl << "Address: " << this->address;
-		cout << endl << "age: " << this->age;
-		if (this->isAdult == true) {
-			cout << endl << "is over 18";
-		}
-		else cout << endl << "is under 18";
-	}
-
-	void operator>>(istream& in) {
-
-		cout << endl << "name: ";
-		in >> name;
-		cout << endl << "address: ";
-		in >> address;
-		cout << endl << "age: ";
-		in >> age;
-		cout << endl << "is adult? ";
-		string adult;
-		in >> adult;
-		if (adult == "yes") {
-			isAdult == true;
-		}
-		else if (adult == "no") {
-			isAdult == false;
-		}
-	}
+	
 	Client operator++() {
 		this->age++;
 		return *this;
@@ -150,5 +122,39 @@ public:
 	bool operator==(Client c) {
 		return this->age = c.age;
 	}
+
+	friend void operator<<(ostream& out, Client c);
+
+	friend void operator>>(istream& in, Client c);
 };
+
+void operator<<(ostream& out, Client c) {
+
+	cout << endl << "Name: " << c.name;
+	cout << endl << "Address: " << c.address;
+	cout << endl << "age: " << c.age;
+	if (c.isAdult == true) {
+		cout << endl << "is over 18";
+	}
+	else cout << endl << "is under 18";
+}
+
+void operator>>(istream& in, Client c) {
+
+	cout << endl << "name: ";
+	in >> c.name;
+	cout << endl << "address: ";
+	in >> c.address;
+	cout << endl << "age: ";
+	in >> c.age;
+	cout << endl << "is adult? ";
+	string adult;
+	in >> adult;
+	if (adult == "yes") {
+		c.isAdult == true;
+	}
+	else if (adult == "no") {
+		c.isAdult == false;
+	}
+}
 
